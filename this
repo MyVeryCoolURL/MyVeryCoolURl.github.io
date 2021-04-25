@@ -1,1 +1,77 @@
 
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>title</title>
+  </head>
+  <style>
+     h1{
+        color:blue;
+     }
+     .this{
+     color:purple;
+     }
+     .red{
+        font-size: 10px;
+        font-family: "Monaco", "Lucida Console", monospace;
+        color:red;
+     }
+     #span{
+     color:purple; 
+     }
+     .green{
+        font-size: 30px
+        font-family: "Georgia", "Palatino", serif;
+        color:green;
+    }
+  </style>
+  <body>
+     <h1>This is My Website</h1>
+     <h2>heading2</h2>
+     <p>This <span id = span>is</span><br> the <strong>stuff</strong></p>
+     <p>Other <em>stuff</em></p>
+     <a target = "_blank" href= "https://en.wikipedia.org/wiki/Dog">
+     <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/animals/retriever.png"width = "100">
+     </a>
+     <p>I am testing to see if i rememberd every thing I learned.
+     </p>
+     <table>
+           <thead>
+               <tr>
+                   <th>this</th>
+                   <th>is</th>
+                   <th>stuff</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>Hello</td>
+                   <td>Hello</td>
+                   <td>Hello</td>
+               </tr>
+               <tr>
+                   <td>Hi</td>
+                   <td>Hi</td>
+                   <td>Hi</td>
+               </tr>
+               <tr>
+                   <td>Hello</td>
+                   <td>Hello</td>
+                   <td>Hello</td>
+               </tr>
+           </tbody>
+       </table>
+     <ol>
+        <li class=red><strong>thing</strong></li>
+       <li class=red>thing</li>
+        <li class=green>thing</li>
+        <li class=green>thing</li>
+     </ol>
+     <ul>
+        <li class=red><em>thing</em></li>
+        <li class=red>thing</li>
+        <li class=green>thing</li>
+        <li class=green>thing</li>
+     </ul>
+  </body>
+</html>
