@@ -1,77 +1,409 @@
-
 <!DOCTYPE html>
-<html>
-  <head>
-     <title>title</title>
-  </head>
-  <style>
-     h1{
-        color:blue;
-     }
-     .this{
-     color:purple;
-     }
-     .red{
-        font-size: 10px;
-        font-family: "Monaco", "Lucida Console", monospace;
-        color:red;
-     }
-     #span{
-     color:purple; 
-     }
-     .green{
-        font-size: 30px
-        font-family: "Georgia", "Palatino", serif;
-        color:green;
-    }
-  </style>
-  <body>
-     <h1>This is My Website</h1>
-     <h2>heading2</h2>
-     <p>This <span id = span>is</span><br> the <strong>stuff</strong></p>
-     <p>Other <em>stuff</em></p>
-     <a target = "_blank" href= "https://en.wikipedia.org/wiki/Dog">
-     <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/animals/retriever.png"width = "100">
-     </a>
-     <p>I am testing to see if i rememberd every thing I learned.
-     </p>
-     <table>
-           <thead>
-               <tr>
-                   <th>this</th>
-                   <th>is</th>
-                   <th>stuff</th>
-               </tr>
-           </thead>
-           <tbody>
-               <tr>
-                   <td>Hello</td>
-                   <td>Hello</td>
-                   <td>Hello</td>
-               </tr>
-               <tr>
-                   <td>Hi</td>
-                   <td>Hi</td>
-                   <td>Hi</td>
-               </tr>
-               <tr>
-                   <td>Hello</td>
-                   <td>Hello</td>
-                   <td>Hello</td>
-               </tr>
-           </tbody>
-       </table>
-     <ol>
-        <li class=red><strong>thing</strong></li>
-       <li class=red>thing</li>
-        <li class=green>thing</li>
-        <li class=green>thing</li>
-     </ol>
-     <ul>
-        <li class=red><em>thing</em></li>
-        <li class=red>thing</li>
-        <li class=green>thing</li>
-        <li class=green>thing</li>
-     </ul>
-  </body>
+<html> 
+ <head>
+    <title></title> 
+</head>
+ <body>
+    <p align="center"> 
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+        
+{
+    var pacSize  = 50;
+    var lifeSize = 20;
+    var pacspeed = 30;
+    var ghostSpeed = 30;
+    var life = 3;
+    var a = 270;
+    var b = 60;
+    var A = a + 25;
+    var c = A + 25;
+    var C = c + 25;
+    var B = C + 25;
+    var m = 2500;
+    var f = 1;
+    var x = 200;
+    var g = 1;
+    var h = 1;
+    var H = 1;
+    var y = 360;
+    var X = 200;
+    var Y = 30;
+    var k = 2500;
+    var score =0;
+    var drawpacMan = function(){ 
+        strokeWeight(1);
+        fill(255, 234, 0);
+        ellipse(x,y ,pacSize,pacSize);
+        fill(0, 0, 0);
+        triangle(x+25,y+8,x+25,y-10,x,y);
+        stroke(255, 255, 255);
+        fill(0, 0, 0);
+        stroke(0, 0, 0);
+        ellipse(x+6,y-15,4,4);
+    };
+    var drawpacMan1 = function(){ 
+        strokeWeight(1);
+        fill(255, 234, 0);
+        ellipse(x,y ,pacSize,pacSize);
+        fill(0, 0, 0);
+        triangle(x+10,y+-28,x+-10,y-28,x,y);
+        stroke(255, 255, 255);
+        fill(0, 0, 0);
+        stroke(0, 0, 0);
+        ellipse(x+-12,y-9,4,4);
+    };
+    var drawlife = function(){
+        fill(255, 234, 0);
+        ellipse(a,b ,lifeSize,lifeSize);
+        fill(0, 0, 0);
+        triangle(a+10,b+4,a+10,b-4,a,b);
+        stroke(255, 255, 255);
+        fill(0, 0, 0);
+        noStroke();
+    };
+    var drawlife2 = function(){
+        fill(255, 234, 0);
+        ellipse(A,b,lifeSize,lifeSize);
+        fill(0, 0, 0);
+        triangle(A+10,b+4,A+10,b-4,A,b);
+        stroke(255, 255, 255);
+        fill(0, 0, 0);
+        noStroke();
+    };
+    var drawlife3 = function(){
+        fill(255, 234, 0);
+        ellipse(c,b ,lifeSize,lifeSize);
+        fill(0, 0, 0);
+        triangle(c+10,b+4,c+10,b-4,c,b);
+        stroke(255, 255, 255);
+        fill(0, 0, 0);
+        noStroke();
+    };
+    var drawlife4 = function(){
+        fill(255, 234, 0);
+        ellipse(C,b ,lifeSize,lifeSize);
+        fill(0, 0, 0);
+        triangle(C+10,b+4,C+10,b-4,C,b);
+        stroke(255, 255, 255);
+        fill(0, 0, 0);
+        noStroke();
+    };
+    var drawlife5 = function(){
+        fill(255, 234, 0);
+        ellipse(B,b ,lifeSize,lifeSize);
+        fill(0, 0, 0);
+        triangle(B+10,b+4,B+10,b-4,B,b);
+        stroke(255, 255, 255);
+        fill(0, 0, 0);
+        noStroke();
+    };
+    var drawpacManAlt = function(){
+        strokeWeight(1);
+        fill(255, 234, 0);
+        ellipse(x,y ,pacSize,pacSize);
+        fill(0, 0, 0);
+        triangle(x+25,y+8,x+25,y-10,x,y);
+        stroke(255, 255, 255);
+        fill(0, 0, 0);
+        stroke(0, 0, 0);
+        ellipse(x+6,y-15,4,4);
+        fill(255, 0, 0);
+        noStroke();
+        rect(x-19,y-29,10,10);
+        triangle(x-8,y-38,x-13,y-26,x+0,y-27);
+        triangle(x-15,y-23,x-23,y-11,x-28,y-22);
+        ellipse(21+x,-10+y,5,3);
+        ellipse(22+x,8+y,5,3);
+    };
+    var drawpacManalt = function(){ 
+        strokeWeight(1);
+        fill(255, 234, 0);
+        ellipse(x,y,pacSize, pacSize);
+        fill(0, 0, 0);
+        triangle(x+25,y+8,x+25,y-10,x,y);
+        stroke(255, 255, 255);
+        fill(0, 0, 0);
+        stroke(0, 0, 0);
+        ellipse(x+6,y-15,4,4);
+        stroke(255, 0, 0);
+        line(x+-25,y+-0,x+-0,y+-25);
+        line(x+-25,y+-2,x+-2,y+-25);
+        line(x+-25,y+-1,x+-1,y+-25);
+        line(x+-25,y+-3,x+-3,y+-25);
+        line(x+-25,y+-5,x+-5,y+-25);
+        line(x+-25,y+-6,x+-6,y+-25);
+        line(x+-25,y+-4,x+-4,y+-25);
+        line(x+-25,y+-7,x+-7,y+-25);
+        line(x+-25,y+-8,x+-8,y+-25);
+        line(x+-25,y+-10,x+-10,y+-25);
+        line(x+-25,y+-9,x+-9,y+-25);
+        line(x-+12,y+-12,x+-25,y+-30);
+        line(x-+11,y+-12,x+-24,y+-30);
+        line(x-+13,y+-12,x+-26,y+-30);
+        fill(255, 0, 0);
+        rect(x + -26,y + -38,7,7 );
+        rect(x + -34,y + -30,7,7 );
+        stroke(0, 0, 255);
+        strokeWeight(4);
+        line(x+-18,y+-8,x+-23,y+-11);
+        line(x+-9,y+-18,x+-10,y+-24);
+        noStroke();
+        
+        
+        
+        
+    };
+    var keyPressed = function() {
+        if (key.code === 119 ) {
+            y-=pacspeed;
+            score += 10;
+        }
+        if (key.code === 97) {
+            x-=pacspeed;
+            score += 10;
+        }
+        if (key.code === 115) {
+            y+=pacspeed;
+            score += 10;
+        }
+        if (key.code === 100) {
+            x += pacspeed;
+            score += 10;
+        }
+        if (keyTyped && keyCode === RIGHT){
+            X+=ghostSpeed;
+         }
+        if (keyTyped && keyCode === LEFT){
+            X-=ghostSpeed;
+         }
+        if (keyTyped && keyCode === UP){
+            Y-=ghostSpeed;
+         }
+        if (keyTyped && keyCode === DOWN){
+            Y+=ghostSpeed;
+         }
+        if (key.code === 114){
+            Program.restart();
+        }
+        if(life <= 0 & key.code === 119){
+            y+=pacspeed;
+            score-=10;
+        }
+        if(life <= 0 & key.code === 115){
+            y-=pacspeed;
+            score-=10;
+        }
+        if(life <= 0 & key.code === 97){
+            x+=pacspeed;
+            score-=10;
+        }
+        if(life <= 0 & key.code === 100){
+            x-=pacspeed;
+            score-=10;
+        }
+        if(life <= 0 & keyCode === UP){
+            Y+=ghostSpeed;
+        }
+        if(life <= 0 & keyCode === DOWN){
+            Y-=ghostSpeed;
+        }
+        if(life <= 0 & keyCode === LEFT){
+            X+=ghostSpeed;
+        }
+        if(life <= 0 & keyCode === RIGHT){
+            X-=ghostSpeed;
+        }
+    }; 
+    var ghost = function (){
+        noStroke();
+        fill(245, 178, 255);
+        ellipse(X,Y,50,50);
+        triangle(X-13,Y+20,X-25 ,Y+34,X-25,Y);
+        triangle(X+25,Y+34,X+13 ,Y+22,X+25,Y);
+        triangle(X+12,Y+22,X ,Y+34,X-12,Y+22);
+        fill(255, 255, 255);
+        ellipse(X+6,Y-3,10,10);
+        ellipse(X-6,Y-3,10,10);
+        fill(0, 0, 0);
+        ellipse(X+7,Y-3,5,5);
+        ellipse(X-5,Y-3,5,5);
+    };
+    var ghost2 = function (){
+        noStroke();
+        fill(0, 255, 255);
+        ellipse(X,Y,50,50);
+        triangle(X-13,Y+20,X-25 ,Y+34,X-25,Y);
+        triangle(X+25,Y+34,X+13 ,Y+22,X+25,Y);
+        triangle(X+12,Y+22,X ,Y+34,X-12,Y+22);
+        fill(255, 255, 255);
+        ellipse(X+6,Y-3,10,10);
+        ellipse(X-6,Y-3,10,10); 
+        fill(0, 0, 0);
+        ellipse(X+7,Y-3,5,5);
+        ellipse(X-5,Y-3,5,5);
+    };
+    var ghost3 = function (){
+        noStroke();
+        fill(255, 0, 0);
+        ellipse(X,Y,50,50);
+        triangle(X-13,Y+20,X-25 ,Y+34,X-25,Y);
+        triangle(X+25,Y+34,X+13 ,Y+22,X+25,Y);
+        triangle(X+12,Y+22,X ,Y+34,X-12,Y+22);
+        fill(255, 255, 255);
+        ellipse(X+6,Y-3,10,10);
+        ellipse(X-6,Y-3,10,10);
+        fill(0, 0, 0);
+        ellipse(X+7,Y-3,5,5);
+        ellipse(X-5,Y-3,5,5);
+    };
+    var ghost4 = function (){
+        noStroke();
+        fill(242, 159, 34);
+        ellipse(X,Y,50,50);
+        triangle(X-13,Y+20,X-25 ,Y+34,X-25,Y);
+        triangle(X+25,Y+34,X+13 ,Y+22,X+25,Y);
+        triangle(X+12,Y+22,X ,Y+34,X-12,Y+22);
+        fill(255, 255, 255);
+        ellipse(X+6,Y-3,10,10);
+        ellipse(X-6,Y-3,10,10);
+        fill(0, 0, 0);
+        ellipse(X+7,Y-3,5,5);
+        ellipse(X-5,Y-3,5,5);
+    };
+    var end = function(){
+        if(Y === y & X=== x ){
+            life -= 1;
+            x = 200;
+            y = 360;
+            X = 200;
+            Y = 30;
+        }
+    };
+    draw= function(){
+        background(0, 0, 0);
+        if (x>400){
+            x-=pacspeed;
+            score-=10;
+        }
+        if (x<0){
+            x+=pacspeed;
+            score-=10;
+        }
+        if (y>400){
+            y-=pacspeed;
+            score-=10;
+        }
+        if (y<0){
+            y+=pacspeed;
+            score-=10;
+        }
+        if (X>400){
+            X-=ghostSpeed;
+        }
+        if (X<0){
+            X+=ghostSpeed;
+        }
+        if (Y>400){
+            Y-=ghostSpeed;
+        }
+        if (Y<0){
+            Y+=ghostSpeed;
+        }
+        if (score >= 5000){
+            life += h;
+            h = 0;
+        }
+        if (score >= 10000){
+            life += H;
+            H = 0;
+        }
+        if (life > 5){
+            life = 5;
+        }
+        if (life === 5){
+            drawlife5();
+            drawlife4();
+            drawlife3();
+            drawlife2();
+            drawlife();
+        }
+        if (life === 4){
+            drawlife4();
+            drawlife3();
+            drawlife2();
+            drawlife();        }
+        if (life === 3){
+            drawlife3();
+            drawlife2();
+            drawlife();
+        }
+        if (life === 2){
+            drawlife2();
+            drawlife();
+        }
+        if (life === 1){
+            drawlife();
+        }
+        if(life <= 0){
+            fill(150, 0, 0);
+            textSize(60);
+            text("Game Over", 50,200);
+            life = 0;
+            x = 200;
+            y = 360;
+            X = 200;
+            Y = 30;
+        }
+        drawpacMan();
+        ghost3();
+        if (life !== 0){
+            if (keyCode === 77){
+                drawpacManAlt();
+                score += m;
+                m=0;
+            }
+            if (keyCode === 66){
+                ghost2();
+                life-=f;
+                f = 0;
+            }
+            if (keyCode === 74){
+                drawpacManalt();
+                life += g;
+                g = 0;
+                
+            }
+            if (keyCode === 80){
+                ghost();
+                score -= k;
+                k = 0;
+            }
+            if (keyCode === 90){
+                ghost4();
+            }
+        }
+        fill(255, 255, 255);
+        textSize(17);
+        text('Score : ' + score,265,36);
+        end();
+    };
+}
+
+    }};
+
+    
+    var canvas = document.getElementById("mycanvas"); 
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
 </html>
